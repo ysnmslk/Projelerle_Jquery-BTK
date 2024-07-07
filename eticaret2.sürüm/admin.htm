@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="" content="" />
+    <title>E-Ticaret</title>
+    <!-- css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+    
+
+    <!-- Jquery ui  css and js    -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- main js-->
+    <script src="js/main.js"></script>
+
+    <style>
+        .ajaxLoadingClass{
+            position: absolute;
+            left: 50%;
+            top:30%;
+            display: none;
+
+        }
+
+
+        .underScoreColor{
+            color:red;
+        }
+    </style>
+</head>
+
+<body class="container">
+
+<!-- ajaxSend
+ajaxComplete
+ajaxSuccess
+ajaxError
+load 
+ajaxStart
+ajaxStop
+$.post()
+$.get()
+$.ajax 
+$.getJSON
+$.ajaxSetup
+$.ajaxPrefilter
+$.param -->
+
+<div class="container">
+ <div class="row mt-5">
+     <div class="col-md-1"><i class="fas fa-search"></i></div>
+     <div class="col"> 
+         <input style="margin-left:-6%" type="text" id="search" class="form-control"> 
+        </div>
+ </div>
+       
+        <ul id="searchUl" class="list-group mt-5">
+            <li class="list-group-item">Html</li>
+            <li class="list-group-item">CSS</li>
+            <li class="list-group-item">Bootstrap</li>
+            <li class="list-group-item">Responsive</li>
+            <li class="list-group-item">JS</li>
+            <li class="list-group-item">Jquery</li>
+        </ul>
+       
+ 
+    <button id="button_id" class="btn btn-primary mt-5">GÖNDER</button>
+    <span id="responseAjax"></span>
+</div>
+
+
+<div id="ajaxLoading" class="ajaxLoadingClass">
+    <img src="gif/BtkAkademi.gif">
+</div>
+
+
+<script>
+$(function () { 
+    $("#search").keyup(function () { 
+        var wordSearch=$(this).val();
+        $("#searchUl li").removeClass("underScoreColor");
+        if($.trim(wordSearch)!=""){
+            $("#searchUl li:contains('"+ wordSearch  +"')").addClass("underScoreColor");
+        }
+     })
+ })
+</script>
+
+<script>
+    $(document).ready(function () {  
+
+        
+              $(document).ajaxStart(function () { 
+            $("#ajaxLoading").css({display:"inline-block"})
+         })
+         $(document).ajaxComplete(function () { 
+            $("#ajaxLoading").css({display:"none"})
+         })
+         $(document).ajaxError(function () { 
+            $("#responseAjax").append("Hata meydana Geldi")
+         })
+        
+         $("#button_id").click(function () { 
+            $("#responseAjax").load("serverResponse.txt")
+         })
+
+        
+    })
+</script>
+
+    <!-- js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

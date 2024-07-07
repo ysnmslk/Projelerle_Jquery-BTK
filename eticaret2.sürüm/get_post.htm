@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Ajax Listelemek</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<!-- div.container>div.row>div.col-md-6+div.col-md-6+div-.col-md-2+.col-md-10 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form action="">
+        <div class="form-group mt-5">
+          <label for="">ID</label>
+          <input type="text" class="form-control" id="post_id" placeholder="ID" required>
+        </div>
+        <div class="form-group">
+          <label for="">ADI</label>
+          <input type="text" class="form-control" id="post_name" placeholder="Adınız" required>
+        </div>
+        <div class="form-group">
+          <label for="">SOYADI</label>
+          <input type="text" class="form-control" id="post_surname" placeholder="Soyadınız" required>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-hover table-striped mt-5">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>ADI</th>
+            <th>SOYADI</th>
+          </tr>
+        </thead>
+        <tbody id="tbody_id">
+        </tbody>
+      </table>
+    </div>
+    
+  <button class="btn btn-danger ml-3" id="ajaxPost">Verileri Gönder</button>
+  <button class="btn btn-primary ml-3" id="ajaxGet">Verileri Listele</button>
+  </div>
+</div>
+
+
+
+
+
+<!-- post -->
+  <script>
+    $(function () {
+      $("#ajaxPost").click(function () {
+        var baseUrl = "http://localhost:3000";
+        var tbody = $("#tbody_id");
+        // $.ajax().done().fail();
+        $.ajax({
+          method: "POST",
+          url: baseUrl + "/posts",
+          data: {
+            "id": $("#post_id").val(),
+            "name": $("#post_name").val(),
+            "surname": $("#post_surname").val()
+          }
+        }).done(function (veriler) {
+          for (var i = 0; i < 20; i++) {
+            var trHtml = "";
+            trHtml += '<tr><td>' + veriler[i].id + '</td><td>' + veriler[i].name + '</td><td>' + veriler[i]
+              .surname + '</td></tr>';
+            tbody.append(trHtml);
+          }
+        }).fail(function () {
+          alert("Listeleme yaparken hata meydana geldi");
+        });
+      });
+    })
+  </script>
+
+<!-- listele -->
+<script>
+  $(function () { 
+    $("#ajaxGet").click(function () { 
+      var baseUrl="http://localhost:3000";
+      var tbody=$("#tbody_id");
+      // $.ajax().done().fail();
+      $.ajax({ method:"GET", url:baseUrl+"/posts" }).done(function (veriler) { 
+        for(var i=0; i<20; i++){
+          var trHtml="";
+          trHtml+='<tr><td>'+veriler[i].id+'</td><td>'+veriler[i].name+'</td><td>'+veriler[i].surname+'</td></tr>';
+          tbody.append(trHtml);
+        }
+       }).fail(function () { 
+         alert("Listeleme yaparken hata meydana geldi");
+        });
+     });
+   })
+      
+      </script>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <scrip src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></scrip>
+</body>
+
+
+
+
+</html>
