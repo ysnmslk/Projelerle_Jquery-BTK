@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>One Pages Blog Page</title>
+    <meta name="title" content="one pages blog pages">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="identifier-URL" content="https://www.btkakademi.gov.tr">
+
+    <link rel="icon" href="btk-images/favicon/favicon.png">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- Font awesome
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="css/all.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Jquery ui  css and js    -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="main_blog.js"></script>
+    
+    <style>
+        .line-clamp1{
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+        .line-clamp2{
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+        .line-clamp3{
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+.line-clamp4{
+    display:-webkit-box;
+    -webkit-line-clamp:4;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+h5{
+    text-transform: uppercase;
+    font-weight: 400;
+    text-shadow: 1px 1px black;
+    text-align: center;
+    
+}
+
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="45">
+
+    <!-- Menu -->
+    <nav class="navbar fixed-top navbar-expand-sm bg-dark navbar-dark ">
+        <div class="container">
+            <a href="index.htm" class="navbar-brand">Logo</a>
+            <button class="navbar-toggler" data-target="#menu" data-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- div.collapse>ul.ml-auto>li.nav.item>a.nav-link{Home} -->
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="ml-auto navbar-nav">
+                    <li class="nav-item">
+                        <a href="#html-btk" class="nav-link">HTML5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#css-btk" class="nav-link">CSS3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#js-btk" class="nav-link">JS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#jquery-btk" class="nav-link">Jquery</a>
+                    </li>
+                </ul>
+                
+                <ul class="ml-auto navbar-nav">
+                    <li class="nav-item">
+                        <a href="html5.htm" class="nav-link">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Misyonumuz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">İletişim</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="btn_giris" class="ml-2 mt-2"><i class="fas fa-user-lock"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--
+<div class="modal fade" id="myUye" role="dialog">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <h3>Üye Girşi</h3>
+                <form action="">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="user_email" name="user_email" placeholder="Email adresiniz" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="user_password" name="user_password"  placeholder="Şifreniz" required>
+                    </div>
+                   
+                    <button type="reset" class="btn btn-danger">Temizle</button>
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+-->
+
+
+<div class="modal fade" id="myUye" role="dialog">
+    <div class="modal-dialog ">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <button class="close text-white"  data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <h3 class="text-white">Üye Girişi</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="user_email" name="user_email" placeholder="Email adresiniz" required>
+                            <span id="validation_email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="user_phone" name="user_phone" placeholder="Telefon numaranız adresiniz" required>
+                            <span id="validation_phone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="user_password" name="user_password"  placeholder="Şifreniz" required>
+                            <span id="validation_password" class="text-danger"></span>
+                        </div>
+                       
+                        <button type="reset" class="btn btn-danger">Temizle</button>
+                        <button id="btnSubmit" type="submit" class="btn btn-primary">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <header>
+        <div class="jumbotron text-white bg-dark">
+            <div class="container">
+                <h2 class="display-4 text-white text-center " id="header-title-btk">BTK AKADEMİ  blog bootstrap</h2>
+                <p class="text-capitalize text-center">Lorem ipsum Lorem, ipsum dolor  In,
+                    neque? dolor sit,  <a href="" class=" text-warning" >DETAY ... </a></p>
+               
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+    
+                
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <!-- main.container>div.row>div.col-md-8+div.col-md-4 -->
+    <main class="container">  <!-- TAM EKRAN İSTİYoRSANIZ container-fluid -->
+        <div class="row">
+            <!-- SOL TARAF -->
+            <div class="col-md-8">
+                <!-- div.card>(img.card-img-top)+(div.card-body>h5.card-title{başlık}+p.card-text+button.btn{detay})+div.card-footer -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 id="html-btk">HTML5</h2>
+                    </div>
+                    <img id="picture_1"  src="btk-images/doga-1.jpg" alt="" class="card-img-top" title="Resim">
+                    <div class="card-body">
+                        <h5 class="card-title">başlık</h5>
+                        <p class="card-text text-justify line-clamp4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Tempore quisquam
+                            porro illum molestias. Animi suscipit cupiditate vel omnis eos impedit voluptatibus adipisci
+                            tenetur voluptatem minima perferendis enim incidunt natus, consequuntur ipsam ullam repellat
+                            reprehenderit explicabo ipsa vitae expedita amet? Impedit ipsum fugit mollitia minus minima,
+                            ipsam velit harum itaque, assumenda quod nulla explicabo nobis a aliquam praesentium odit
+                            quia aperiam cumque eveniet saepe laudantium! Optio repellendus doloremque vitae iusto
+                            placeat ullam perferendis similique eligendi magnam illo, consequuntur ducimus laboriosam
+                            asperiores!</p>
+                        <button id="btn_tooltip" 
+                        title="Detay için tıklayınız" class="btn btn-danger">detay</button>
+                    </div>
+                    <div style="opacity:0.6;" class="card-footer"> date 26 ekim 2020</div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 id="css-btk">CSS3</h2>
+                    </div>
+                    <img src="btk-images/doga-2.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title ">CSS3</h5>
+                        <p class="card-text text-justify line-clamp4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Tempore quisquam
+                            porro illum molestias. Animi suscipit cupiditate vel omnis eos impedit voluptatibus adipisci
+                            tenetur voluptatem minima perferendis enim incidunt natus, consequuntur ipsam ullam repellat
+                            reprehenderit explicabo ipsa vitae expedita amet? Impedit ipsum fugit mollitia minus minima,
+                            ipsam velit harum itaque, assumenda quod nulla explicabo nobis a aliquam praesentium odit
+                            quia aperiam cumque eveniet saepe laudantium! Optio repellendus doloremque vitae iusto
+                            placeat ullam perferendis similique eligendi magnam illo, consequuntur ducimus laboriosam
+                            asperiores!</p>
+                        <button class="btn btn-danger">detay</button>
+                    </div>
+                    <div style="opacity:0.6;" class="card-footer"> date 26 ekim 2020</div>
+                </div>
+
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 id="js-btk">JS</h2>
+                    </div>
+                    <img src="btk-images/doga-3.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">başlık</h5>
+                        <p class="card-text text-justify line-clamp4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Tempore quisquam
+                            porro illum molestias. Animi suscipit cupiditate vel omnis eos impedit voluptatibus adipisci
+                            tenetur voluptatem minima perferendis enim incidunt natus, consequuntur ipsam ullam repellat
+                            reprehenderit explicabo ipsa vitae expedita amet? Impedit ipsum fugit mollitia minus minima,
+                            ipsam velit harum itaque, assumenda quod nulla explicabo nobis a aliquam praesentium odit
+                            quia aperiam cumque eveniet saepe laudantium! Optio repellendus doloremque vitae iusto
+                            placeat ullam perferendis similique eligendi magnam illo, consequuntur ducimus laboriosam
+                            asperiores!</p>
+                        <button class="btn btn-danger">detay</button>
+                    </div>
+                    <div style="opacity:0.6;" class="card-footer"> date 26 ekim 2020</div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 id="jquery-btk">JQUERY</h2>
+                    </div>
+                    <img src="btk-images/doga-1.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">başlık</h5>
+                        <p class="card-text text-justify line-clamp4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Tempore quisquam
+                            porro illum molestias. Animi suscipit cupiditate vel omnis eos impedit voluptatibus adipisci
+                            tenetur voluptatem minima perferendis enim incidunt natus, consequuntur ipsam ullam repellat
+                            reprehenderit explicabo ipsa vitae expedita amet? Impedit ipsum fugit mollitia minus minima,
+                            ipsam velit harum itaque, assumenda quod nulla explicabo nobis a aliquam praesentium odit
+                            quia aperiam cumque eveniet saepe laudantium! Optio repellendus doloremque vitae iusto
+                            placeat ullam perferendis similique eligendi magnam illo, consequuntur ducimus laboriosam
+                            asperiores!</p>
+                        <button class="btn btn-danger">detay</button>
+                    </div>
+                    <div style="opacity:0.6;" class="card-footer"> date 26 ekim 2020</div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>BOOTSTRAP</h2>
+                    </div>
+                    <img src="btk-images/doga-2.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">başlık</h5>
+                        <p class="card-text text-justify line-clamp4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Tempore quisquam
+                            porro illum molestias. Animi suscipit cupiditate vel omnis eos impedit voluptatibus adipisci
+                            tenetur voluptatem minima perferendis enim incidunt natus, consequuntur ipsam ullam repellat
+                            reprehenderit explicabo ipsa vitae expedita amet? Impedit ipsum fugit mollitia minus minima,
+                            ipsam velit harum itaque, assumenda quod nulla explicabo nobis a aliquam praesentium odit
+                            quia aperiam cumque eveniet saepe laudantium! Optio repellendus doloremque vitae iusto
+                            placeat ullam perferendis similique eligendi magnam illo, consequuntur ducimus laboriosam
+                            asperiores!</p>
+                        <button class="btn btn-danger">detay</button>
+                    </div>
+                    <div style="opacity:0.6;" class="card-footer"> date 26 ekim 2020</div>
+                </div>
+
+
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>Table</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-dark table-striped">
+                                <caption>Başlık</caption>
+                                <thead>
+                                    <tr>
+                                        <th>1.alan</th>
+                                        <th>2.alan</th>
+                                        <th>3.alan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Alan</td>
+                                        <td>Alan</td>
+                                        <td>Alan</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alan</td>
+                                        <td>Alan</td>
+                                        <td>Alan</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alan</td>
+                                        <td>Alan</td>
+                                        <td>Alan</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-center" colspan="3">BTK AKADEMİ </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+
+                    </div>
+                    <div style="opacity:0.6;" class="card-footer"> date 26 ekim 2020</div>
+                </div>
+
+                <div class="card card-columns mb-4">
+                    <div class="bg-danger" style="min-height:15rem;"></div>
+                    <div class="bg-primary mb-2" style="min-height:15rem;"></div>
+                </div>
+                <div class="card card-columns mb-4">
+                    <div class="bg-secondary" style="min-height:15rem;"></div>
+                </div>
+                <div class="card card-columns mb-4">
+                    <div class="bg-success" style="min-height:15rem;"></div>
+                </div>
+            </div>
+
+            <!-- SAĞ TARAF -->
+            <div class="col-md-4 ">
+                <!-- div.card>div.header>h6{Arama}+div.card-body -->
+                <div class="card mb-5">
+                    <div class="header">
+                        <div class="card-body">
+                            <div  class="input-group"><i class="fas fa-search  mt-2 mr-2"></i><input id="tags" type="text" class="form-control" placeholder="Arama alanı"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- div.card>div.card-header>h3{Sayfa}+div.card-body>div.row>(div.col-6>ul.list-unstyled>(li>a)*4)+div.col-6>ul.list-unstyled>(li>a)*4) -->
+
+                <div class="card mt-3 mb-5">
+                    <div class="card-header">
+                        <h5 clas="text-center text-muted">En çok ziyaret edilenler</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul class="list-unstyled">
+                                        <li><a href="">Html5</a></li>
+                                        <li><a href="">Css3</a></li>
+                                        <li><a href="">JS</a></li>
+                                        <li><a href="">Jquery</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <ul class="list-unstyled">
+                                        <li><a href="">Servlet</a></li>
+                                        <li><a href="">JSP</a></li>
+                                        <li><a href="">JSF</a></li>
+                                        <li><a href="">Spring boot</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Tag Cloud</h5>
+                        <div class="card-body">
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                            <a class="btn btn-primary border-radius mt-1" href="">deneme</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3 mb-5">
+                    <div class="card-header">
+                        <h5 clas="text-center text-muted">Galeri</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul class="list-unstyled">
+                                        <li><a href="">Html5</a></li>
+                                        <li><a href="">Css3</a></li>
+                                        <li><a href="">JS</a></li>
+                                        <li><a href="">Jquery</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <ul class="list-unstyled">
+                                        <li><a href="">Servlet</a></li>
+                                        <li><a href="">JSP</a></li>
+                                        <li><a href="">JSF</a></li>
+                                        <li><a href="">Spring boot</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Önceki</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">İleri</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+
+ 
+
+    <footer class="text-white bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-5 border border-primary">
+                    <ul>
+                        <li><a href="">deneme2</a></li>
+                        <li><a href="">deneme3</a></li>
+                        <li><a href="">deneme5</a></li>
+                        <li><a href="">deneme6</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mt-5 border border-danger">
+                    <p>BÜTÜN HAKLAR SAKLIDIR.&copy; </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+</html>
